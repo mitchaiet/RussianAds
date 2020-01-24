@@ -1,6 +1,5 @@
 # Engineering Inflammatory Content - A Memetic Analysis of Russian Social Media Propaganda
-Mitch Chaiet
-mitchchaiet@utexas.edu
+Mitch Chaiet - mitchchaiet@utexas.edu
 RTF 368S - MEDIA STUDIES THESIS
 
 The Russians sourced content already proven to be popular among certain demographics, from hashtags and sites already popular among those demographics, edited them to convey their target messages, and spread them through Russian owned parody pages targeting the same demographics said content was sourced from. They provided minimal funding to spur their propagation, in order to propagate those images in a peer to peer fashion (memetically).
