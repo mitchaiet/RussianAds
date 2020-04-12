@@ -2,6 +2,8 @@
 Mitch Chaiet - mitchchaiet@utexas.edu
 RTF 368S - MEDIA STUDIES THESIS
 
+![MemeHacking](https://texastipi.org/wp-content/uploads/2020/04/Engineering-Inflammatory-Content-Hero-1-1.png)
+
 The Russians sourced content already proven to be popular among certain demographics, from hashtags and sites already popular among those demographics, edited them to convey their target messages, and spread them through Russian owned parody pages targeting the same demographics said content was sourced from. They provided minimal funding to spur their propagation, in order to propagate those images in a peer to peer fashion (memetically).
 
 [Read my interactive undergraduate thesis here](https://mitchaiet.github.io/RussianAds/)
