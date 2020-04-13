@@ -17,6 +17,7 @@ The Russians sourced content already proven to be popular among certain demograp
 Helpful Links
 * [The Russian Ad Explorer](https://russian-ad-explorer.github.io/)
 * [Exposing Russia’s Effort to Sow Discord Online: The Internet Research Agency and Advertisements - intelligence.house.gov](https://intelligence.house.gov/social-media-content/default.aspx)
+* [Meme Hacking: Unearthing Russian Misinforation Efforts - UTexas Technology and Information Policy Institute Blog](https://texastipi.org/meme-hacking-unearthing-russian-misinformation-efforts/)
 
 Data Sources:
 * [Initial Dataset Release - Social Media Advertisements - intelligence.house.gov (PDF)](https://intelligence.house.gov/social-media-content/social-media-advertisements.htm)
