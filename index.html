@@ -3,7 +3,7 @@
     <head>
         <title>Engineering Inflammatory Content</title>
         <meta charset='utf-8'/>
-        <link rel="stylesheet" type="text/css" href="undefined/github-markdown.css">
+        <link rel="stylesheet" type="text/css" href="styles/github-markdown.css">
         <style>
             .markdown-body {
                 box-sizing: border-box;
@@ -32,8 +32,54 @@
                 }
             }
         </script>
+         <!-- imports -->
+         <script type="text/javascript" src="scripts/imports/d3.min.js"></script>
+
+         <!-- main -->
+         <script type="text/javascript" src="scripts/index.js"></script>
+ 
+          <!-- css -->
+          <script type="text/javascript" src="scripts/css.js"></script>
+          <script>
+             const style = document.createElement('style')
+             style.textContent = css
+             document.head.append(style)        
+         </script>
+ 
+         <!-- data -->
+         <script type="text/javascript" src="data/626_elements.js"></script>
+         <script type="text/javascript" src="data/626_connections.js"></script>
+         <script type="text/javascript" src="data/1826_elements.js"></script>
+         <script type="text/javascript" src="data/1826_connections.js"></script>
+         <script type="text/javascript" src="data/2843_elements.js"></script>
+         <script type="text/javascript" src="data/2843_connections.js"></script>
+         <script type="text/javascript" src="data/4chan_elements.js"></script>
+         <script type="text/javascript" src="data/4chan_connections.js"></script>
+         <script type="text/javascript" src="data/africanamericans_elements.js"></script>
+         <script type="text/javascript" src="data/africanamericans_connections.js"></script>
+         <script type="text/javascript" src="data/brownberets_elements.js"></script>
+         <script type="text/javascript" src="data/brownberets_connections.js"></script>
+         <script type="text/javascript" src="data/instagram_elements.js"></script>
+         <script type="text/javascript" src="data/instagram_connections.js"></script>
+         <script type="text/javascript" src="data/reddit_elements.js"></script>
+         <script type="text/javascript" src="data/reddit_connections.js"></script> 
+         <script type="text/javascript" src="data/silver_crown_elements.js"></script>
+         <script type="text/javascript" src="data/silver_crown_connections.js"></script>
+
+           
+        <!-- charts setup scripts -->
+        <script type="text/javascript" src="scripts/charts/unedited_propagation.js"></script>
+        <script type="text/javascript" src="scripts/charts/watermarks.js"></script>
+        <script type="text/javascript" src="scripts/charts/original_content.js"></script>
+        <script type="text/javascript" src="scripts/charts/silver_crowns.js"></script>
+        <script type="text/javascript" src="scripts/charts/brownberets.js"></script>
+        <script type="text/javascript" src="scripts/charts/african_americans.js"></script>
+        <script type="text/javascript" src="scripts/charts/reddit.js"></script>
+        <script type="text/javascript" src="scripts/charts/4chan.js"></script>
+        <script type="text/javascript" src="scripts/charts/instagram.js"></script>
     </head>
     <body>
+
         <article class="markdown-body">
             <h1 id="engineering-inflammatory-content">Engineering Inflammatory Content</h1>
 <h3 id="a-memetic-analysis-of-russian-social-media-propaganda">A Memetic Analysis of Russian Social Media Propaganda</h3>
@@ -163,17 +209,31 @@ placement
 
 <h2 id="4-conclusions">4. Conclusions:</h2>
 <p>The dataset produced three patterns of Russian memetic content distribution:</p>
-<iframe src="https://embed.kumu.io/3a45c7ef46757f7c698f3d03a942eee9"
-  width="940" height="600" frameborder="0">
-</iframe>
+<p>Propagation of unedited, memetically circulated images by sourcing them from popular, thematically linked hashtags concerning a particular demographic, and presenting those images through Russian-owned pages to the same source demographic in order to court viewership and establish brand trust.</p>
+<div class='chart-parent' id='cp-unedited_propagation'>
+    <script>
+        d3.select('#cp-unedited_propagation')
+        .node()
+        .appendChild(uneditedPropagation(_1826_elements, _1826_connections))
+    </script>
+</div>
+<p>Propagation of edited, memetically circulated images by watermarking the content with a specific Russian-owned brand, then circulating the content both through sponsored ads and in peer-to-peer groups in order to subvert those demographics. (why you can find blacktivist content on me.me)</p>
+<div class='chart-parent' id='cp-watermarks'>
+    <script>
+        d3.select('#cp-watermarks')
+        .node()
+        .appendChild(watermarks(_626_elements, _626_connections))
+    </script>
+</div>
+<p>The creation of original content (colloquially referred to as “OC” in online communities) using internet-sourced ingredient assets and using formatting styles typically associated with memetic content.</p>
+<div class='chart-parent' id='cp-original_content'>
+    <script>
+        d3.select('#cp-original_content')
+        .node()
+        .appendChild(originalContent(_2843_elements, _2843_connections))
+    </script>
+</div>
 
-<iframe
-  src="https://embed.kumu.io/013dd860a9fafadcb7110b66dddc7a45"
-  width="940" height="600" frameborder="0"></iframe>
-
-<iframe
-  src="https://embed.kumu.io/3f1a59014fe0d26917d7c29c9605354f"
-  width="940" height="600" frameborder="0"></iframe>
 
 
 <p>The IRA effectively weaponized Poe’s Law to build channels of distribution which propagated inflammatory misinformation to susceptible audiences. These patterns follow the following steps:</p>
@@ -198,18 +258,32 @@ Call to action: Spur audience members to seek out their own information and inde
 </li></ol>
 <h2 id="memetic-propagation-maps">Memetic Propagation Maps</h2>
 <p>The following maps show Russian Facebook Ads and their respective Tineye reverse image search results. Russian Ads are highlighted in Red, and Tineye results are highlighted in green. Click on each node for metadata information.</p>
-<iframe
-  src="https://embed.kumu.io/cd15a48d54279cf2e392e5b773085168"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-silver_crowns'>
+    <script>
+        d3.select('#cp-silver_crowns')
+        .node()
+        .appendChild(silverCrowns(silver_crown_elements, silver_crown_connections))
+    </script>
+</div>
 
-<iframe
-  src="https://embed.kumu.io/ffbfbbc0573cfb8e276be9814416d092"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-brownberets'>
+    <script>
+        d3.select('#cp-brownberets')
+        .node()
+        .appendChild(brownberets(brownberets_elements, brownberets_connections))
+    </script>
+</div>
 
-  <iframe
-  src="https://embed.kumu.io/d9cf906c28a0e98bef625a33f87a8236"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-african_americans'>
+    <script>
+        d3.select('#cp-african_americans')
+        .node()
+        .appendChild(africanAmericans(africanamericans_elements, africanamericans_connections))
+        
+    </script>
+</div>
 
+<!-- master node graph -->
   <iframe
   src="https://embed.kumu.io/72dce67bfa21f724d9d2abbbf8f507c9"
   width="940" height="600" frameborder="0"></iframe>
@@ -218,19 +292,33 @@ Call to action: Spur audience members to seek out their own information and inde
 <p>The following maps show Russian Facebook Ads whose content linked to various posts, users, and communities on major social networks. Russian Ads are highlighted in red; hover over them to reveal their respective results.</p>
 <p>Note: Certain social networks prevent direct scraping by web crawlers. Notably, 4Chan deletes all posts after 24 hours, and Instagram is a closed community which does not allow for direct scraping. Therefore, maps for these communities are based on links to service-specific archival and proxy sites, like imgrum.org and 4archive.org.</p>
 <h5 id="reddit">Reddit</h5>
-<iframe
-  src="https://embed.kumu.io/7d0bd2f2e902a8f4c4599f1da9c51baa"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-reddit'>
+    <script>
+        d3.select('#cp-reddit')
+        .node()
+        .appendChild(reddit(reddit_elements, reddit_connections))
+    </script>
+</div>
 
 <h5 id="4chan">4Chan</h5>
-<iframe
-  src="https://embed.kumu.io/a7b260cf4c615c2bf15608698550d772"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-4chan'>
+    <script>
+        d3.select('#cp-4chan')
+        .node()
+        .appendChild(_4chan(_4chan_elements, _4chan_connections))
+    </script>
+</div>
+
+
 
 <h5 id="instagram">Instagram</h5>
-<iframe
-  src="https://embed.kumu.io/7fe40f9f855194df5ec13e7686483791"
-  width="940" height="600" frameborder="0"></iframe>
+<div class='chart-parent' id='cp-instagram'>
+    <script>
+        d3.select('#cp-instagram')
+        .node()
+        .appendChild(instagram(instagram_elements, instagram_connections))
+    </script>
+</div>
 
 <h2 id="definitions">Definitions:</h2>
 <p>Virality: <em>“a word-of-mouth-like cascade diffusion process wherein a message is actively forwarded from one person to other, within and between multiple weakly linked personal networks, resulting in a rapid increase in the number of people who are exposed to the message.”</em>  </p>
