@@ -1,3 +1,4 @@
+console.log(window.innerWidth)
 const colors = {
     red : 'rgb(170, 34, 41)',
     grey : 'rgb(225, 225, 225)',
@@ -6,7 +7,7 @@ const colors = {
     lightRed : 'rgb(228, 138, 145)',
     green : 'rgb(202, 233, 215)'
 },
-width = window.innerWidth * 0.66,
+width = window.innerWidth <= 448 ? window.innerWidth - 45 : window.innerWidth
 r = 20,
 nodeStrokeWidth = 1.5
 

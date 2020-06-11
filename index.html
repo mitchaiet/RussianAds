@@ -11,6 +11,26 @@
                 max-width: 980px;
                 margin: 0 auto;
                 padding: 45px;
+               
+            }
+
+            @media only screen and (max-device-width : 414px)  {
+                body {
+                    margin-left: 45px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                .markdown-body {
+                    box-sizing: border-box;
+                    text-size-adjust: 200%;
+                    display: block;
+                    margin: auto;
+                    text-align: justify;
+                    text-justify: inter-word;
+                }
             }
         </style>
         <script>
