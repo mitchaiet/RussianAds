@@ -39,5 +39,5 @@ const brownberets = (elements, connections) => {
       return (wrapper.node())
     }
     
-    return (nodes.length > 100 ? startOverlay() : renderGraph().node())
+    return (renderGraph().node())
   }

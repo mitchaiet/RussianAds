@@ -1,4 +1,3 @@
-console.log(window.innerWidth)
 const colors = {
     red : 'rgb(170, 34, 41)',
     grey : 'rgb(225, 225, 225)',
@@ -7,7 +6,6 @@ const colors = {
     lightRed : 'rgb(228, 138, 145)',
     green : 'rgb(202, 233, 215)'
 },
-width = window.innerWidth <= 448 ? window.innerWidth - 45 : window.innerWidth
 r = 20,
 nodeStrokeWidth = 1.5
 
@@ -142,7 +140,7 @@ function setTooltip({ p, node, wrapper, width }) {
       .attr('class', 'tooltip-img-wrapper')
       .append('img')
       .attr('class', 'tooltip-img')
-      .attr('src', `images/${node.id}.png`)
+      .attr('src', `images/nodes/${node.id}.png`)
 
     // Attributes
     Object.keys(node).sort().forEach(key => {
@@ -269,15 +267,17 @@ function renderNodes({ context, nodes }) {
         let image = new Image()
         image.onload = () => renderImage(context, d, image)
         image.onerror = () => d._img['broken'] = true
-        image.src = `images/${d.id}.png`
+        image.src = `images/nodes/${d.id}.png`
         d._img = image
       }
       
       //Text
-      context.font = '0.4rem Arial'
-      context.fillStyle = 'black'
-      context.textAlign = 'center'
-      context.fillText(d.id, d.x, d.y + r  + (r / 2))
+      if (d.Type != 'Tineye Result') {
+        context.font = '1rem Arial'
+        context.fillStyle = 'black'
+        context.textAlign = 'center'
+        context.fillText(d['Ad ID'], d.x, d.y + r + r + 5)
+      }
   })
 }
 

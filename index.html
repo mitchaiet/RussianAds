@@ -26,6 +26,7 @@
                 .markdown-body {
                     box-sizing: border-box;
                     text-size-adjust: 200%;
+                    -webkit-text-size-adjust: 200%;
                     display: block;
                     margin: auto;
                     text-align: justify;
@@ -57,14 +58,6 @@
 
          <!-- main -->
          <script type="text/javascript" src="scripts/index.js"></script>
- 
-          <!-- css -->
-          <script type="text/javascript" src="scripts/css.js"></script>
-          <script>
-             const style = document.createElement('style')
-             style.textContent = css
-             document.head.append(style)        
-         </script>
  
          <!-- data -->
          <script type="text/javascript" src="csv_data/626_elements.js"></script>
@@ -122,8 +115,7 @@ Director, Technology & Information Policy Institute<br>
 Moody College of Communication | The University of Texas at Austin 
 </p>
 <p style="text-align:center">
-<img src="https://github.com/umd-mith/irads/blob/master/site/images/616.png?raw=true" width="300" />
-<img src="https://github.com/umd-mith/irads/blob/master/site/images/1258.png?raw=true" width="300" />
+<img src="images/site/hero.png" width="100%" />
 </p>
 
 <hr>
@@ -214,22 +206,40 @@ placement
 <ul>
 <li><a href="https://github.com/mitchaiet/RussianAds/tree/master/cropped_images">Russian Facebook Ads Cropped
 </a></li></ul>
-<p>Here is Ad ID 1 as an uncropped source image: </p>
-<p><img src="https://github.com/umd-mith/irads/blob/master/site/images/1.png?raw=true" alt=""></p>
-<p>Here is Ad ID 1 as a cropped image:</p>
-<p><img src="https://github.com/mitchaiet/RussianAds/blob/master/cropped_images/1.png?raw=true" alt=""></p>
+<div style='display: flex;'>
+    <div>
+        <p>Here is Ad ID 1 as an uncropped source image: </p>
+        <p>
+            <img src="https://github.com/umd-mith/irads/blob/master/site/images/1.png?raw=true" alt="">
+        </p>
+    </div>
+    <div>
+        <p>Here is Ad ID 1 as a cropped image:</p>
+        <p><img src="https://github.com/mitchaiet/RussianAds/blob/master/cropped_images/1.png?raw=true" alt=""></p>
+    </div>
+</div>
 <p>The input for each Tineye search was the cropped image.</p>
 <p>In order to run reverse image searches via the <a href="https://services.tineye.com/developers/tineyeapi/what_is_tineyeapi">Tineye API</a>, I created a Maltego Transform which allowed me to select a Russian Facebook Ad entity, and perform a search using the cropped version of the image. </p>
 <p>The Tineye reverse image search results were returned to Maltego XL as nodes connected in a directed manner to the source Russian Facebook Ad entity. Each Tineye Result node contains the following data:</p>
 <ul>
 <li>a count of the total number of matches</li><li>a direct URL to each matching image</li><li>the URL of the page where each match was found</li><li>if the source is a collection or stock site</li><li>the score for the individual match</li><li>a link to the ‘compare images’ overlay image</li></ul>
 <p>Conveniently, if two discrete ads returned a Tineye match to the same exact URL and Crawl Date, both Russian Facebook Ad entities will be linked to the same Tineye Result node.</p>
-<p>In order to visualize the results of the searches outside of Maltego XL, I export selections from the large map using Maltego XL&#39;s &quot;Export Graph to Table&quot; function. I exported each selection using the option &quot;Entity property flat map (machine readable)&quot; which produces a formatted CSV file. I created a data flow using parabola.io in order to automatically format the Maltego XL formatted CSV into a separate CSV file formatted for import into <a href="http://www.kumu.io">node visualization software Kumu.</a> which I used to create the embedded visualizations below.</p>
+<p>In order to visualize the results of the searches outside of Maltego XL, I export selections from the large map using Maltego XL's "Export Graph to Table" function. I exported each selection using the option "Entity property flat map (machine readable)" which produces a formatted CSV file. I created a data flow using parabola.io in order to automatically format the Maltego XL formatted CSV into a separate CSV file formatted for import into node visualization software Kumu which I initially used to create the embedded visualizations for this report. On May 26th, 2020, the data was exported from Kumu in favor of recreating the node maps in D3.js for the sake of preservation, optimization, and portability.</p>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRc8CXsjVpAa_KuIuzVLSmFqZEd5Y1utYurtVPRIfXRoBc3BV4HVOIQptcW5MEFy4a2krARuxo-is1T/embed?start=true&loop=true&delayms=600000000" frameborder="0" width="940" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 <h2 id="4-conclusions">4. Conclusions:</h2>
 <p>The dataset produced three patterns of Russian memetic content distribution:</p>
 <p>Propagation of unedited, memetically circulated images by sourcing them from popular, thematically linked hashtags concerning a particular demographic, and presenting those images through Russian-owned pages to the same source demographic in order to court viewership and establish brand trust.</p>
+<script>
+    const width = d3.select('.markdown-body').node().getBoundingClientRect().width
+</script>
+  <!-- css -->
+  <script type="text/javascript" src="scripts/css.js"></script>
+  <script>
+     const style = document.createElement('style')
+     style.textContent = css
+     document.head.append(style)        
+ </script>
 <div class='chart-parent' id='cp-unedited_propagation'>
     <script>
         d3.select('#cp-unedited_propagation')
@@ -278,6 +288,19 @@ Call to action: Spur audience members to seek out their own information and inde
 </li></ol>
 <h2 id="memetic-propagation-maps">Memetic Propagation Maps</h2>
 <p>The following maps show Russian Facebook Ads and their respective Tineye reverse image search results. Russian Ads are highlighted in Red, and Tineye results are highlighted in green. Click on each node for metadata information.</p>
+<h3>Silver Crowns</h3>
+<p>The Russians sourced the headline and two images from a black-focused Buzzfeed article:<br /><a href="https://www.buzzfeed.com/patricepeck/women-embrace-gray-hair">These Stunning Women Are Shutting Down A Ridiculous Beauty Double Standard</a>
+</p>
+<p>They then created a meme out of the images:</p>
+<img src=https://raw.githubusercontent.com/umd-mith/irads/master/site/images/2011.png>
+<p>and ran it as a sponsored ad, under a Russian-owned and branded Facebook Page "Black Matters (BM)" targeting Facebook users with an interest in the following terms:</p>
+<ul>
+    <li>Martin Luther King</li>
+    <li>African-American culture</li>
+    <li>African-American Civil Rights Movement (1954‚1968)</li>
+    <li>African-American history</li>
+    <li>Malcolm X</li>
+</ul>
 <div class='chart-parent' id='cp-silver_crowns'>
     <script>
         d3.select('#cp-silver_crowns')
@@ -286,6 +309,9 @@ Call to action: Spur audience members to seek out their own information and inde
     </script>
 </div>
 
+
+<h3>#BrownBerets</h3>
+<p>AD ID's 2575, 2593, 2595, 2605, 2608, 2616, 2631, 2643, 2682, 2697, 3242, 3243 were all run under the Facebook Page "Brown Power", targeting hispanics. Here we can see that multiple images used in ads were sourced from the  hashtag #BrownBerets on Instagram.</p>
 <div class='chart-parent' id='cp-brownberets'>
     <script>
         d3.select('#cp-brownberets')
@@ -294,6 +320,8 @@ Call to action: Spur audience members to seek out their own information and inde
     </script>
 </div>
 
+<h3>#AfricanAmerican</h3>
+<p>AD ID's 952, 2118, 2003, 1131, target black-related topics all link back to #africanamericans on Instagram.</p>
 <div class='chart-parent' id='cp-african_americans'>
     <script>
         d3.select('#cp-african_americans')
@@ -347,8 +375,10 @@ Call to action: Spur audience members to seek out their own information and inde
 <li>(1) a person-to-person mode of diffusion; </li><li>(2) great speed, which is enhanced by social media platforms; and </li><li>(3) broad reach, which is achieved by bridging multiple networks.</li></ul>
 <p>Link Rot: <em>Link rot (or linkrot) is the process by which hyperlinks on individual websites or the Internet in general tend to point to web pages, servers or other resources that have become permanently unavailable.</em></p>
 <p>Meme Page: <em>An internet account, page, group, or forum, specifically dedicated to sharing relevant internet memes, generally based around a certain theme, topic, or performance.</em></p>
+<p>Memetic Information: <em>user generated content created in a production environment without any need for fact checking or journalistic verification standards. It is propagated in a peer-to-peer manner through mediated channels such as group chats, comment threads, or user-uploaded video, and is propagated to the end viewer through a trusted peer source - like a friend, relative, or mutual chat/group member.</em></p>
 <p>Memetic Distribution: <em>the act of propagating a meme to various persons or groups via strong and weakly linked social networks in a peer-to-peer manner; the physical file is the one passed around, not just a link, usually through direct transmission of a file without alteration (texting the image to someone, screenshotting or screen recording and sending the file</em></p>
 <p>Memetic Abstraction: <em>When a screenshot is taken of a post or article and distributed memetically, the content continues to spread while attribution to the original source URL is severed. When a screenshot of a news article is taken and propagated eslewhere online, the mechanisms tracking the URL for the source article are blind to the propagation of the secondary image version. </em></p>
+<p>Intertextuality: <em>the shaping of a text's meaning by another text. It is the interconnection between similar or related works of literature that reflect and influence an audience's interpretation of the text. Intertextuality is the relation between texts that are inflicted by means of quotations and allusion. Intertextual figures include: allusion, quotation, calque, plagiarism, translation, pastiche and parody</em>. <a href="https://en.wikipedia.org/wiki/Intertextuality">Wikipedia</a></p>
 <p>Diegetic UI Elements: <em>The image contains embedded UI elements within the image which meet the following criteria:</em>  </p>
 <p><em>Key Features:</em></p>
 <ul>
@@ -363,8 +393,6 @@ Call to action: Spur audience members to seek out their own information and inde
 <p>Morgan&#39;s Corollary to Godwin&#39;s Law: <em>As soon as such a comparison occurs, someone will start a Nazi-discussion thread on alt.censorship.</em></p>
 <p>DarkShikari&#39;s Theorem: <em>Any community that gets its laughs by pretending to be idiots will eventually be flooded by actual idiots who mistakenly believe that they&#39;re in good company.</em></p>
 <p>Emoji: <em>pictographs (pictorial symbols) that are typically presented in a colorful form and used inline in text. They represent things such as faces, weather, vehicles and buildings, food and drink, animals and plants, or icons that represent emotions, feelings, or activities.  To the computer they are simply another character, but people send each other billions of emoji everyday to express love, thanks, congratulations, or any number of a growing set of ideas.</em></p>
-<p>Blind/Referenceless Image Spatial QUality Evaluator (BRISQUE): *Blind/Referenceless Image Spatial QUality Evaluator (BRISQUE) is a natural scene statistic (NSS)-based distortion-generic blind/no-reference (NR) image quality assessment (IQA) model which operates in the spatial domain. It does not compute distortion specific features such as ringing, blur or blocking, but instead uses scene statistics of locally normalized luminance coefficients to quantify possible losses of ‘naturalness’ in the image due to the presence of distortions, thereby leading to a holistic measure of quality.</p>
-<p>Butteraugli: <em>a project that estimates the psychovisual similarity of two images. It gives a score for the images that is reliable in the domain of barely noticeable differences. Butteraugli not only gives a scalar score, but also computes a spatial map of the level of differences.</em></p>
 
         </article>
     </body>
