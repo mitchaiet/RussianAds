@@ -78,6 +78,8 @@
          <script type="text/javascript" src="csv_data/reddit_connections.js"></script> 
          <script type="text/javascript" src="csv_data/silver_crown_elements.js"></script>
          <script type="text/javascript" src="csv_data/silver_crown_connections.js"></script>
+         <script type="text/javascript" src="csv_data/intertextual_elements.js"></script>
+         <script type="text/javascript" src="csv_data/intertextual_connections.js"></script>
 
            
         <!-- charts setup scripts -->
@@ -87,6 +89,7 @@
         <script type="text/javascript" src="scripts/charts/silver_crowns.js"></script>
         <script type="text/javascript" src="scripts/charts/brownberets.js"></script>
         <script type="text/javascript" src="scripts/charts/african_americans.js"></script>
+        <script type="text/javascript" src="scripts/charts/intertextual.js"></script>
         <script type="text/javascript" src="scripts/charts/reddit.js"></script>
         <script type="text/javascript" src="scripts/charts/4chan.js"></script>
         <script type="text/javascript" src="scripts/charts/instagram.js"></script>
@@ -330,11 +333,14 @@ Call to action: Spur audience members to seek out their own information and inde
         
     </script>
 </div>
-
-<!-- master node graph -->
-  <iframe
-  src="https://embed.kumu.io/72dce67bfa21f724d9d2abbbf8f507c9"
-  width="940" height="600" frameborder="0"></iframe>
+<h3>Intertextual</h3>
+<div class='chart-parent' id='cp-intertextual'>
+    <script>
+        d3.select('#cp-intertextual')
+        .node()
+        .appendChild(intertextual(intertextual_elements, intertextual_connections))
+    </script>
+</div>
 
 <h4 id="russian-ads-by-social-network">Russian Ads by Social Network</h4>
 <p>The following maps show Russian Facebook Ads whose content linked to various posts, users, and communities on major social networks. Russian Ads are highlighted in red; hover over them to reveal their respective results.</p>
