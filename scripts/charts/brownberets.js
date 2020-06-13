@@ -19,9 +19,15 @@ const brownberets = (elements, connections) => {
           nodeDistance: 140,
           chargeStr: -400,
           xDenom: 1,
-          xStr: 0.005,
-          yDenom: 0.9,
-          yStr: 0.0
+          xStr: 0.05,
+          yDenom: 1,
+          yStr: 0.07
+        },
+        {
+          k: 0.27662433827306915,
+          x: 300.03145016220185,
+          y: 233.59850056066955,
+          string : 'translate(300.03145016220185,233.59850056066955) scale(0.27662433827306915)'
         }
      )
     

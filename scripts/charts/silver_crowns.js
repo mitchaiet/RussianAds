@@ -22,7 +22,8 @@ const silverCrowns = (elements, connections) => {
           xStr: 0.005,
           yDenom: 0.9,
           yStr: 0.0
-        }
+        },
+        {k: 2.0139111001134418, x: -464.87823940201304, y: -335.09761858749255}
      )
     
      wrapper.node().appendChild(canvas)

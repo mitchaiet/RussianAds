@@ -19,10 +19,11 @@ const intertextual = (elements, connections) => {
           nodeDistance: 140,
           chargeStr: -400,
           xDenom: 1,
-          xStr: 0.005,
+          xStr: 0.05,
           yDenom: 0.9,
-          yStr: 0.0
-        }
+          yStr: 0.07
+        },
+        {k: 0.2081939427201372, x: 305.3541080980391, y: 241.81146569708}
      )
     
      wrapper.node().appendChild(canvas)

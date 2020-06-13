@@ -20,11 +20,12 @@ const instagram = () => {
           nodeRadius: 15, 
           nodeDistance: 200,
           chargeStr: -500,
-          xDenom: 30,
-          xStr: 0.0,
+          xDenom: 1,
+          xStr: 0.05,
           yDenom: 0.9,
-          yStr: 0.0
-        }
+          yStr: 0.07
+        },
+        {k: 0.08753477005545031, x: 422.816285745425, y: 260.6888701711601}
       )
   
       wrapper.node().appendChild(canvas)

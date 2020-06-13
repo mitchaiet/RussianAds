@@ -21,10 +21,11 @@ const africanAmericans = (elements, connections) => {
           nodeDistance: 50,
           chargeStr: -500,
           xDenom: 1,
-          xStr: 0.0,
+          xStr: 0.05,
           yDenom: 0.9,
-          yStr: 0.0
-        }
+          yStr: 0.07
+        },
+        { k: 0.8900757332524954, x: 60.76966722704026, y: 44.89473814428686 }
       )
   
       wrapper.node().appendChild(canvas)

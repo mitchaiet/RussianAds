@@ -219,7 +219,7 @@ function setTooltip({ p, node, wrapper, width }) {
   }
 }
 
-function renderNodes({ context, nodes }) {
+function renderNodes({ preTransform, context, nodes }) {
  
     context.beginPath()
   
@@ -248,16 +248,16 @@ function renderNodes({ context, nodes }) {
       context.lineWidth = 4
       context.strokeStyle = colors.grey
       context.stroke()
-
       
       const renderImage = (context, d, image) => {
         context.save()
         context.moveTo(d.x + r, d.y)
         context.arc(d.x, d.y, r - 2, 0, 2 * Math.PI)
-        context.clip() 
+        context.clip()
         context.drawImage(image, d.x - r, d.y - r, r * 2, r * 2)
         context.restore()
       }
+
       //Images
       if (d._img) {
           if (!d._img['broken']) {
@@ -265,7 +265,16 @@ function renderNodes({ context, nodes }) {
           }
       } else {
         let image = new Image()
-        image.onload = () => renderImage(context, d, image)
+        image.onload = function() {
+          if (preTransform) {
+            const { k, x, y } = preTransform
+            context.save()
+            context.translate(x, y)
+            context.scale(k, k)
+          }
+          renderImage(context, d, image)
+          context.restore()
+        }
         image.onerror = () => d._img['broken'] = true
         image.src = `images/nodes/${d.id}.png`
         d._img = image
@@ -294,7 +303,7 @@ function newRetinaCanvas({ width, height, scale }) {
     return (canvas)
   }
 
-  function newCanvas(chartId, nodes, links, legendItems, forceVariables) {
+  function newCanvas(chartId, nodes, links, legendItems, forceVariables, preTransform) {
 
     const height = 600
     const canvas = newRetinaCanvas({ width, height, scale : 2 })
@@ -318,9 +327,10 @@ function newRetinaCanvas({ width, height, scale }) {
     runSimulation({ simulation, n : 100 })
   
     context.clearRect(0, 0, width, height)
-    
-    renderLinks({ context, links })
-    renderNodes({ context, nodes })
+   
+    if (!preTransform) {
+      render(context)
+    }
     
     canvas.on('click', function(d) {
   
@@ -386,23 +396,37 @@ function newRetinaCanvas({ width, height, scale }) {
      setHighlightCircle({ node, g, mode : 'hover' })
   
     })
-    
-    canvas.call(d3.zoom()
-        .scaleExtent([-4, 8])
-        .on('zoom', function zoomed() {
-        
-            const { transform } = d3.event
-  
-            g.attr('transform', transform)
-            context.save()
-            context.clearRect(0, 0, width, height)
-            context.translate(transform.x, transform.y)
-            context.scale(transform.k, transform.k)
-            renderLinks({ context, links })
-            renderNodes({ context, nodes })
-            context.restore()
-        }))
-  
+
+    function render(_context) {
+      renderLinks({ context : _context, links })
+      renderNodes({ preTransform, context : _context, nodes })
+    }
+
+    function zooming() {
+
+      const { transform } = d3.event
+      const { x, y, k } = transform
+
+      g.attr('transform', transform)
+      context.save()
+      context.clearRect(0, 0, width, height)
+      context.translate(x, y)
+      context.scale(k, k)
+      render(context)
+      context.restore()
+    }
+
+    const zoom = d3.zoom()
+      .on('zoom', zooming)
+      .scaleExtent([-4, 8])
+
+    canvas.call(zoom)
+    if (preTransform) {
+      canvas
+      .call(zoom.transform, d3.zoomIdentity
+        .translate(preTransform.x, preTransform.y)
+        .scale(preTransform.k, preTransform.k))
+      }
     const legend = legendHTML(legendItems)
 
     const tooltip = tooltipHTML()

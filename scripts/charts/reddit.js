@@ -20,10 +20,11 @@ const reddit = (elements, connections) => {
         nodeDistance: 100,
         chargeStr: -400,
         xDenom: 1,
-        xStr: 0.005,
+        xStr: 0.05,
         yDenom: 0.9,
-        yStr: 0.0
-      }
+        yStr: 0.07
+      },
+      {k: 0.09645501094118332, x: 417.14668486534265, y: 262.7409889628228}
     )
 
     wrapper.node().appendChild(canvas)

@@ -24,7 +24,8 @@ const _4chan = (elements, connections) => {
           xStr: 0.0,
           yDenom: 0.9,
           yStr: 0.0
-        }
+        },
+        {k: 0.33962157113723634, x: 284.3718821242834, y: 183.41276358490995}
       )
   
       wrapper.node().appendChild(canvas)

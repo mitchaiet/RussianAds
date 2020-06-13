@@ -23,7 +23,8 @@ const originalContent = (elements, connections) => {
          xStr: 0.0,
          yDenom: 0.9,
          yStr: 0.0
-       }
+       },
+       { k: 1.6043623327049796, x: -271.70850030890415, y: -184.02027364979523 }
      )
     
      wrapper.node().appendChild(canvas)
