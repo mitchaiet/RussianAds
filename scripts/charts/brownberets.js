@@ -16,8 +16,8 @@ const brownberets = (elements, connections) => {
         legend,
         {
           nodeRadius: 15, 
-          nodeDistance: 140,
-          chargeStr: -400,
+          nodeDistance: 200,
+          chargeStr: -500,
           xDenom: 1,
           xStr: 0.05,
           yDenom: 1,
