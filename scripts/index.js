@@ -229,8 +229,9 @@ function renderNodes({ preTransform, context, nodes }) {
       context.lineWidth = 2
       context.moveTo(d.x + r, d.y)
       if (d.Type === 'Russian Facebook Ad') {
+        const redR = d['Ad ID'] === '2667' ? r * 4 : r * 1.4
         context.beginPath()
-        context.arc(d.x, d.y, r * 1.4, 0, 2 * Math.PI)
+        context.arc(d.x, d.y, redR, 0, 2 * Math.PI)
         context.fillStyle = colors.lightRed
         context.fill()
       } else if (d.Type != 'Russian Facebook Ad' && d.Type != 'Tineye Result') {
@@ -242,7 +243,7 @@ function renderNodes({ preTransform, context, nodes }) {
 
       //Regular Node
       context.beginPath()
-      context.arc(d.x, d.y, r, 0, 2 * Math.PI)
+      context.arc(d.x, d.y, d['Ad ID'] === '2667' ? r * 2.5 : r, 0, 2 * Math.PI)
       context.fillStyle = '#fff'
       context.fill()
       context.lineWidth = 4
@@ -250,11 +251,12 @@ function renderNodes({ preTransform, context, nodes }) {
       context.stroke()
       
       const renderImage = (context, d, image) => {
+        const rimage = d['Ad ID'] === '2667' ? r * 2.5 -2 : r -2
         context.save()
         context.moveTo(d.x + r, d.y)
-        context.arc(d.x, d.y, r - 2, 0, 2 * Math.PI)
+        context.arc(d.x, d.y, rimage, 0, 2 * Math.PI)
         context.clip()
-        context.drawImage(image, d.x - r, d.y - r, r * 2, r * 2)
+        context.drawImage(image, d.x - rimage, d.y - rimage, rimage * 2, rimage * 2)
         context.restore()
       }
 
@@ -282,10 +284,11 @@ function renderNodes({ preTransform, context, nodes }) {
       
       //Text
       if (d.Type != 'Tineye Result') {
-        context.font = '1rem Arial'
+        const fs = d['Ad ID'] === '2667' ? 3 : 1
+        context.font = `${fs}rem Arial`
         context.fillStyle = 'black'
         context.textAlign = 'center'
-        context.fillText(d['Ad ID'], d.x, d.y + r + r + 5)
+        context.fillText(d['Ad ID'], d.x, d.y + r + r + fs * 12)
       }
   })
 }
@@ -302,6 +305,9 @@ function newRetinaCanvas({ width, height, scale }) {
     
     return (canvas)
   }
+
+  const toTheRight = ['491', '26', '1928', '2793', '21']
+  const toTheLeft = ['2626', '2624', '2667', '2584', '2736', '2666', '3244', '2679']
 
   function newCanvas(chartId, nodes, links, legendItems, forceVariables, preTransform) {
 
@@ -322,6 +328,16 @@ function newRetinaCanvas({ width, height, scale }) {
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('x', d3.forceX(width / forceVariables.xDenom).strength(forceVariables.xStr))
       .force('y', d3.forceY(height * forceVariables.yDenom).strength(forceVariables.yStr))
+      .on('tick', (e) => {
+
+        nodes.forEach(function(d, i) {
+          d.x -= toTheRight.indexOf(d['Ad ID']) > -1
+              ? 0.5
+              : toTheLeft.indexOf(d['Ad ID']) > -1
+              ? -0.5
+              : 0
+        })
+      })
       .stop()
    
     runSimulation({ simulation, n : 100 })

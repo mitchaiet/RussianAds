@@ -17,7 +17,7 @@ const brownberets = (elements, connections) => {
         {
           nodeRadius: 15, 
           nodeDistance: 200,
-          chargeStr: -500,
+          chargeStr: -1000,
           xDenom: 1,
           xStr: 0.05,
           yDenom: 1,
