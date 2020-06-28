@@ -244,6 +244,25 @@ class Deck {
         const showNewContent = () => {
             d3.select('#content-frame').node().scrollTop = 0
             cw.node().innerHTML = content
+
+            cw.selectAll('img').each(function() {
+                
+                const img = d3.select(this)
+                
+                if (img) {
+                    const a = d3.create('a')
+                        .attr('target', '_blank')
+                        .attr('href', img.attr('src'))
+
+                        a.append('img').attr('src', img.attr('src'))
+                        
+                        const p = img.node().parentNode
+
+                        img.remove()
+                        p.appendChild(a.node())
+                }
+            })
+
             this.show(cw)
         }
 
