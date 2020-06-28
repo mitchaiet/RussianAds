@@ -33,6 +33,44 @@
                     text-justify: inter-word;
                 }
             }
+
+            #content-frame {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 1;
+                opacity: 1;
+                width: 33%;
+                overflow-y: scroll;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-right: solid 2px rgb(230, 230, 230);
+                box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);
+            }
+
+            #content-wrapper {
+                padding: 1rem;
+            }
+
+            .pres-cntrl {
+                padding: 0;
+                border: none;
+                font: inherit;
+                color: inherit;
+                background-color: transparent;
+                cursor: pointer;
+                padding: 10px;
+                background-color: rgb(241, 244, 246);
+            }
+
+            .pres-cntrl:first {
+                border-right: solid 3px black;
+            }
+
+            .pres-cntrl:hover {
+                transition: 0.4s;
+                background-color: rgb(255, 255, 255);
+            }
+
         </style>
         <script>
             window.onload = function() {
@@ -150,7 +188,14 @@ Moody College of Communication | The University of Texas at Austin
 <p><strong>Three key lenses for analyzing memetic internet content:</strong></p>
 <ul>
 <li>Access - what groups are circulating which content? Was the media distributed via a link, by sharing the actual image, or other? Was there a paywall for access? </li><li>Attribution - Who originally created the meme? Who posted the meme? Who took credit for the meme? </li><li>Ownership - What platform is the meme present on, who has monetized the distribution, who has control of the deletion of the post?</li></ul>
-<iframe src="https://mitchaiet.kumu.io/strictly-platonic-memetic-propagation-analysis" width="1024" height="576" frameborder="0"></iframe>
+<!-- <iframe src="https://mitchaiet.kumu.io/strictly-platonic-memetic-propagation-analysis" width="1024" height="576" frameborder="0"></iframe> -->
+<div id='meme-prop-wrapper' style='position:relative;'>
+    <div id='content-frame'>
+        <div id='content-wrapper'></div>
+    </div>
+</div>
+<script src="scripts/meme_prop/base-graph.js"></script>
+<script src="scripts/meme_prop/index.js"></script>
 
 <h2 id="1-research-questions">1. Research Questions:</h2>
 <p>How did the Internet Research Agency effectively strategize, source, and deploy deceptive social media campaigns tasked with distributing misinformation, while maintaining anonymity?</p>

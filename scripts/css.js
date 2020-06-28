@@ -150,4 +150,5 @@ const css = `
   .tooltip-value {
     font-weight: 300;
   }
+
  `
