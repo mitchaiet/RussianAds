@@ -319,6 +319,7 @@ class Deck {
 
         const nextIdx = this.getNextIdx(dir)
         const nextSlide = this.slides[nextIdx]
+        const nb =  d3.select('#next-button')
         const goNext = () => {
 
             nextSlide.header && this.setHeader(nextSlide.header)
@@ -329,18 +330,7 @@ class Deck {
             this.focus(nextSlide.ids)
         }
 
-        const nb =  d3.select('#next-button')
-
-        switch(nextIdx) {
-            case 0:
-               nb.html('→')
-               break ;
-            case this.slides.length - 1 :
-                nb.html('Restart ↺')
-                break ;
-            default :
-                nb.html('←')
-        }
+        nextIdx === this.slides.length - 1 ? nb.html('Restart ↺') : nb.html('→')
        
         goNext()
     }
