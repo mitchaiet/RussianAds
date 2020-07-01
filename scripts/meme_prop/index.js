@@ -334,8 +334,10 @@ class Deck {
         switch(nextIdx) {
             case 0:
                nb.html('→')
+               break ;
             case this.slides.length - 1 :
                 nb.html('Restart ↺')
+                break ;
             default :
                 nb.html('←')
         }
