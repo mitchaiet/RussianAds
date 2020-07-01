@@ -179,6 +179,21 @@ slides[12] = {
     content : `<div class="article-block"> <header> <h1 class="title">Texas A&amp;M Audience Reactions</h1> <h3 class="subtitle"></h3> </header> <div class="markdown-container"><p>We begin to see that a completely different audience, presented with the same piece of media, with absolutely no knowledge of how the previous audience reacted, repeats the same action of intertextual reference and remix. </p> <p>Gabie Nguyen provides a URL to Twitter account <a href="https://twitter.com/2dudes1scoot">@2Dudes1Scoot</a> which is dedicated to the curation and sharing of images and videos of 2 men on a single scooter.</p> <p><img src="https://github.com/mitchaiet/RussianAds/blob/master/Presentation%20Assets/StrictlyPlatonic/AMIntertextualLinks/AMIntertextualLink1.png?raw=true" alt="AMIntertextualLink1"></p> <p>W Travis Reichel provides a link to the previously referenced Vine, while Lauren Ferris and Allison Van Cleve simply reference the lyrics of the Vine, remixing them to conform the the context of 2 men on a scooter.</p> <p><img src="https://github.com/mitchaiet/RussianAds/blob/master/Presentation%20Assets/StrictlyPlatonic/AMIntertextualLinks/AMIntertextualLink2.png?raw=true" alt="AMIntertextualLink2"></p> </div> </div>`
 }
 
+slides[13] = {
+    ids : ['chugging'],
+    content : `<div class="article-block"<header><h1 class="title">UW Audience Reactions</h1>
+    <p>In order to find the person who posted the meme into UW, we must first find the post containing the meme.
+    A search for “strictly platonic” - a phrase embedded within the image and not machine readable - produces no results.</p>
+   <p><img src="https://media.githubusercontent.com/media/mitchaiet/RussianAds/master/Presentation%20Assets/StrictlyPlatonic/UWIntertextualLinks/UWIntertextualLink1.png" alt="UW intertextual link"></p>
+   A search for “honda ruckus” - the main object associated with the meme - produces no results.
+   <p><img src="https://media.githubusercontent.com/media/mitchaiet/RussianAds/master/Presentation%20Assets/StrictlyPlatonic/UWIntertextualLinks/UWIntertextualLink2.png"></img></p>
+   <p>A search for “hot new adult novel” - the machine-readable caption associated with the original posting of the meme - produces no results.</p>
+   <p><img src="https://media.githubusercontent.com/media/mitchaiet/RussianAds/master/Presentation%20Assets/StrictlyPlatonic/UWIntertextualLinks/UWIntertextualLink3.png"></img></p>
+   <p>A search for “not gay” - a phrase stemming from audience reactions referencing the secondary Anthony Padilla hot tub vine - reveals the meme as the first result.</p>
+   </p><img src="https://media.githubusercontent.com/media/mitchaiet/RussianAds/master/Presentation%20Assets/StrictlyPlatonic/UWIntertextualLinks/UWIntertextualLink4.png"></img></p>
+   </div>`
+}
+
 class Deck {
 
     constructor({
