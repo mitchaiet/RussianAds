@@ -329,8 +329,16 @@ class Deck {
             this.focus(nextSlide.ids)
         }
 
-        nextIdx === 0 && d3.select('#next-button').html('→')
-        nextIdx === (this.slides.length - 1) && d3.select('#next-button').html('Restart ↺') 
+        const nb =  d3.select('#next-button')
+
+        switch(nextIdx) {
+            case 0:
+               nb.html('→')
+            case this.slides.length - 1 :
+                nb.html('Restart ↺')
+            default :
+                nb.html('←')
+        }
        
         goNext()
     }
@@ -407,8 +415,6 @@ class Deck {
         const nb = buttonGroup.append('button').style('width', '100%').html('→').attr('class', 'pres-cntrl').attr('id', 'next-button').on('click', () => deck.next()).node()
 
         cf.node().prepend(buttonGroup.node())
-        // cf.node().prepend(pb)
-        // cf.node().prepend(nb)
     })
         
     //reset clip paths to node innerRadius (radius - strokeWidth)
