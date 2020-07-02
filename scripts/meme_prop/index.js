@@ -156,7 +156,7 @@ slides[7] = {
 
 slides[8] = {
     ids : ['xavier', 'redass', 'mitch', 'hornsy'],
-    content : `<div class="article-block"> <header> <h1 class="title">Xavier Lozano - Repost to A&amp;M</h1> <h3 class="subtitle"></h3> </header> <div class="markdown-container"><p><img src="https://github.com/mitchaiet/RussianAds/blob/master/Presentation%20Assets/StrictlyPlatonic/StrictlyPlatonicAMComment1.png?raw=true" alt="StrictlyPlatonicAMComment1"></p> <p>Immediately, members of Aggie Memes for Redass Teens begin to <b>attribute</b> the image back to its original source, Mitch Chaiet's Original Post in UT LONGmemes for HORNSy Teens. Since Xavier did not provide <b>attribution</b> as to where he originally downloaded <b>("sourced")</b> the image, commenters who also had <b>access</b> to the UT group <b>attributed</b> the image back to the source for him.<br>.  </p> </div> </div>`
+    content : `<div class="article-block"> <header> <h1 class="title">Xavier Lozano - Repost to A&amp;M</h1> <h3 class="subtitle"></h3> </header> <div class="markdown-container"><p><img src="https://github.com/mitchaiet/RussianAds/blob/master/Presentation%20Assets/StrictlyPlatonic/StrictlyPlatonicAMComment1.png?raw=true" alt="StrictlyPlatonicAMComment1"></p> <p>Immediately, members of Aggie Memes for Redass Teens begin to <b>attribute</b> the image back to its original source, Mitch Chaiet's Original Post in UT LONGmemes for HORNSy Teens. Since Xavier did not provide <b>attribution</b> as to where he originally downloaded <b>("sourced")</b> the image, commenters who also had <b>access</b> to the UT group <b>attributed</b> the image back to the source for him.<br></p> </div> </div>`
 }
 
 slides[9] = {
